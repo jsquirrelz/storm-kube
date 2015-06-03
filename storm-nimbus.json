@@ -8,29 +8,35 @@
     }
   },
   "spec": {
-    "containers": [
+    "volumes": [
       {
-        "name": "nimbus",
-        "image": "mattf/storm-nimbus",
+        "name": "topologies", 
+        "hostPath": {
+          "path": "/home/spinnakr/data"
+        }
+      }
+    ],
+    "containers": [ 
+      {
+        "name": "nimbus", 
+        "image": "mattf/storm-nimbus", 
         "ports": [
           {
-            "containerPort": 6627
-          },
-        "volumeMounts": {
-          "name": "topologies",
-          "mountPath": "/data/topologies"
-        }
-        ],
+            "containerPort": 6627 
+          }
+        ], 
         "resources": {
           "limits": {
             "cpu": "100m"
           }
-        }
+        },
+        "volumeMounts": [
+          {
+            "name": "topologies",
+            "mountPath": "/data/topologies"
+          }
+        ]
       }
-    ],
-    "volumes": {
-      "name": "topologies",
-      "hostDir": "/home/spinnakr/data"
-    }
+    ]
   }
 }

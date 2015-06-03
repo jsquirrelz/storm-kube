@@ -1,0 +1,21 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1beta3",
+  "metadata": {
+    "name": "storm-ui",
+    "labels": {
+      "name": "storm-ui"
+    }
+  },
+  "spec": {
+    "ports": [
+      {
+        "port": 8080,
+        "targetPort": 8080
+      }
+    ],
+    "selector": {
+      "name": "storm-ui"
+    }
+  }
+}

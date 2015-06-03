@@ -1,0 +1,28 @@
+{
+  "kind": "Pod",
+  "apiVersion": "v1beta3",
+  "metadata": {
+    "name": "storm-ui",
+    "labels": {
+      "name": "storm-ui"
+    }
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "storm-ui",
+        "image": "mattf/storm-ui",
+        "ports": [
+          {
+            "containerPort": 8080
+          }
+        ],
+        "resources": {
+          "limits": {
+            "cpu": "100m"
+          }
+        }
+      }
+    ]
+  }
+}

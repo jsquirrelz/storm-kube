@@ -1,0 +1,206 @@
+{
+  "annotations": "any",
+  "apiVersion": "",
+  "creationTimestamp": "",
+  "deletionTimestamp": "",
+  "generateName": "",
+  "kind": "",
+  "labels": "any",
+  "name": "",
+  "namespace": "",
+  "resourceVersion": "",
+  "selfLink": "",
+  "spec": {
+    "replicas": 0,
+    "selector": "any",
+    "template": {
+      "annotations": "any",
+      "creationTimestamp": "",
+      "deletionTimestamp": "",
+      "generateName": "",
+      "labels": "any",
+      "name": "",
+      "namespace": "",
+      "resourceVersion": "",
+      "selfLink": "",
+      "spec": {
+        "containers": [
+          {
+            "args": [
+              ""
+            ],
+            "capabilities": {
+              "add": [
+                {}
+              ],
+              "drop": [
+                {}
+              ]
+            },
+            "command": [
+              ""
+            ],
+            "env": [
+              {
+                "name": "",
+                "value": ""
+              }
+            ],
+            "image": "",
+            "imagePullPolicy": "",
+            "lifecycle": {
+              "postStart": {
+                "exec": {
+                  "command": [
+                    ""
+                  ]
+                },
+                "httpGet": {
+                  "host": "",
+                  "path": "",
+                  "port": ""
+                },
+                "tcpSocket": {
+                  "port": ""
+                }
+              },
+              "preStop": {
+                "exec": {
+                  "command": [
+                    ""
+                  ]
+                },
+                "httpGet": {
+                  "host": "",
+                  "path": "",
+                  "port": ""
+                },
+                "tcpSocket": {
+                  "port": ""
+                }
+              }
+            },
+            "livenessProbe": {
+              "exec": {
+                "command": [
+                  ""
+                ]
+              },
+              "httpGet": {
+                "host": "",
+                "path": "",
+                "port": ""
+              },
+              "initialDelaySeconds": 0,
+              "tcpSocket": {
+                "port": ""
+              },
+              "timeoutSeconds": 0
+            },
+            "name": "",
+            "ports": [
+              {
+                "containerPort": 0,
+                "hostIP": "",
+                "hostPort": 0,
+                "name": "",
+                "protocol": ""
+              }
+            ],
+            "privileged": false,
+            "readinessProbe": {
+              "exec": {
+                "command": [
+                  ""
+                ]
+              },
+              "httpGet": {
+                "host": "",
+                "path": "",
+                "port": ""
+              },
+              "initialDelaySeconds": 0,
+              "tcpSocket": {
+                "port": ""
+              },
+              "timeoutSeconds": 0
+            },
+            "resources": {
+              "limits": "any",
+              "requests": "any"
+            },
+            "terminationMessagePath": "",
+            "volumeMounts": [
+              {
+                "mountPath": "",
+                "name": "",
+                "readOnly": false
+              }
+            ],
+            "workingDir": ""
+          }
+        ],
+        "dnsPolicy": "",
+        "host": "",
+        "hostNetwork": false,
+        "nodeSelector": "any",
+        "restartPolicy": "",
+        "volumes": [
+          {
+            "emptyDir": {
+              "medium": ""
+            },
+            "gcePersistentDisk": {
+              "fsType": "",
+              "partition": 0,
+              "pdName": "",
+              "readOnly": false
+            },
+            "gitRepo": {
+              "repository": "",
+              "revision": ""
+            },
+            "glusterfs": {
+              "endpoints": "",
+              "path": "",
+              "readOnly": false
+            },
+            "hostPath": {
+              "path": ""
+            },
+            "iscsi": {
+              "fsType": "",
+              "iqn": "",
+              "lun": 0,
+              "readOnly": false,
+              "targetPortal": ""
+            },
+            "name": "",
+            "nfs": {
+              "path": "",
+              "readOnly": false,
+              "server": ""
+            },
+            "secret": {
+              "secretName": ""
+            }
+          }
+        ]
+      },
+      "uid": ""
+    },
+    "templateRef": {
+      "apiVersion": "",
+      "fieldPath": "",
+      "kind": "",
+      "name": "",
+      "namespace": "",
+      "resourceVersion": "",
+      "uid": ""
+    }
+  },
+  "status": {
+    "replicas": 0
+  },
+  "uid": ""
+}

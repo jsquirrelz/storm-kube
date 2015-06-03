@@ -1,0 +1,32 @@
+{
+  "annotations": "any",
+  "apiVersion": "",
+  "creationTimestamp": "",
+  "deletionTimestamp": "",
+  "generateName": "",
+  "kind": "",
+  "labels": "any",
+  "name": "",
+  "namespace": "",
+  "resourceVersion": "",
+  "selfLink": "",
+  "spec": {
+    "createExternalLoadBalancer": false,
+    "portalIP": "",
+    "ports": [
+      {
+        "name": "",
+        "port": 0,
+        "protocol": "",
+        "targetPort": ""
+      }
+    ],
+    "publicIPs": [
+      ""
+    ],
+    "selector": "any",
+    "sessionAffinity": ""
+  },
+  "status": {},
+  "uid": ""
+}

@@ -33,19 +33,19 @@ instructions for your platform.
 ZooKeeper is a distributed coordination service that Storm uses as a
 bootstrap and for state storage.
 
-Use the [`examples/storm/zookeeper.json`](zookeeper.json) file to create a pod running
+Use the [`zookeeper.json`](zookeeper.json) file to create a pod running
 the ZooKeeper service.
 
 ```shell
-$ kubectl create -f examples/storm/zookeeper.json
+$ kubectl create -f storm-kube/zookeeper.json
 ```
 
-Then, use the [`examples/storm/zookeeper-service.json`](zookeeper-service.json) file to create a
+Then, use the [`zookeeper-service.json`](zookeeper-service.json) file to create a
 logical service endpoint that Storm can use to access the ZooKeeper
 pod.
 
 ```shell
-$ kubectl create -f examples/storm/zookeeper-service.json
+$ kubectl create -f storm-kube/zookeeper-service.json
 ```
 
 You should make sure the ZooKeeper pod is Running and accessible
@@ -77,19 +77,19 @@ imok
 The Nimbus service is the master (or head) service for a Storm
 cluster. It depends on a functional ZooKeeper service.
 
-Use the [`examples/storm/storm-nimbus.json`](storm-nimbus.json) file to create a pod running
+Use the [`storm-nimbus.json`](storm-nimbus.json) file to create a pod running
 the Nimbus service.
 
 ```shell
-$ kubectl create -f examples/storm/storm-nimbus.json
+$ kubectl create -f storm-kube/storm-nimbus.json
 ```
 
-Then, use the [`examples/storm/storm-nimbus-service.json`](storm-nimbus-service.json) file to
+Then, use the [`storm-nimbus-service.json`](storm-nimbus-service.json) file to
 create a logical service endpoint that Storm workers can use to access
 the Nimbus pod.
 
 ```shell
-$ kubectl create -f examples/storm/storm-nimbus-service.json
+$ kubectl create -f storm-kube/storm-nimbus-service.json
 ```
 
 Ensure that the Nimbus service is running and functional.
@@ -104,7 +104,9 @@ kubernetes-ro       component=apiserver,provider=kubernetes   <none>            
 zookeeper           name=zookeeper                            name=zookeeper      10.254.139.141      2181
 nimbus              name=nimbus                               name=nimbus         10.254.115.208      6627
 
-$ sudo docker run -it -w /opt/apache-storm mattf/storm-base sh -c '/configure.sh 10.254.139.141 10.254.115.208; ./bin/storm list'
+$ kubectl exec -it -p nimbus -c nimbus bash
+bash-4.3# cd /opt/apache-storm
+bash-4.3# ./bin/storm list
 ...
 No topologies running.
 ```
@@ -118,7 +120,7 @@ the Nimbus service.
 The Storm workers need both the ZooKeeper and Nimbus services to be
 running.
 
-Use the [`examples/storm/storm-worker-controller.json`](storm-worker-controller.json) file to create a
+Use the [`storm-worker-controller.json`](storm-worker-controller.json) file to create a
 ReplicationController that manages the worker pods.
 
 ```shell
@@ -127,34 +129,11 @@ $ kubectl create -f examples/storm/storm-worker-controller.json
 
 ### Check to see if the workers are running
 
-One way to check on the workers is to get information from the
-ZooKeeper service about how many clients it has.
+One way to check is to list the Replication Controllers.
 
 ```shell
-$  echo stat | nc 10.254.139.141 2181; echo
-Zookeeper version: 3.4.6--1, built on 10/23/2014 14:18 GMT
-Clients:
- /192.168.48.0:44187[0](queued=0,recved=1,sent=0)
- /192.168.45.0:39568[1](queued=0,recved=14072,sent=14072)
- /192.168.86.1:57591[1](queued=0,recved=34,sent=34)
- /192.168.8.0:50375[1](queued=0,recved=34,sent=34)
- /192.168.45.0:39576[1](queued=0,recved=34,sent=34)
-
-Latency min/avg/max: 0/2/2570
-Received: 23199
-Sent: 23198
-Connections: 5
-Outstanding: 0
-Zxid: 0xa39
-Mode: standalone
-Node count: 13
+$  kubectl get rc
 ```
-
-There should be one client from the Nimbus service and one per
-worker. Ideally, you should get ```stat``` output from ZooKeeper
-before and after creating the ReplicationController.
-
-(Pull requests welcome for alternative ways to validate the workers)
 
 ## tl;dr
 
@@ -171,6 +150,3 @@ Make sure the ZooKeeper Pod is running (use: ```kubectl get pods```).
 Make sure the Nimbus Pod is running.
 
 ```kubectl create -f storm-worker-controller.json```
-
-
-[![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/examples/storm/README.md?pixel)]()

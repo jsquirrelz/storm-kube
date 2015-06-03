@@ -15,7 +15,11 @@
         "ports": [
           {
             "containerPort": 6627
-          }
+          },
+        "volumeMounts": {
+          "name": "topologies",
+          "mountPath": "/data/topologies"
+        }
         ],
         "resources": {
           "limits": {
@@ -23,6 +27,10 @@
           }
         }
       }
-    ]
+    ],
+    "volumes": {
+      "name": "topologies",
+      "hostDir": "/home/spinnakr/data"
+    }
   }
 }

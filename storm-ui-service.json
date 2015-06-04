@@ -8,15 +8,17 @@
     }
   },
   "spec": {
+    "createExternalLoadBalancer": true,
     "ports": [
       {
-        "protocol": "TCP",
-        "port": 80,
-        "targetPort": 8080
+        "port": 8080,
+        "targetPort": "storm-ui-http",
+        "protocol": "TCP"
       }
     ],
     "selector": {
       "name": "storm-ui"
-    }
+    },
+    "type": "LoadBalancer"
   }
 }

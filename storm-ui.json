@@ -14,7 +14,7 @@
         "image": "mattf/storm-ui",
         "ports": [
           {
-            "hostPort": 80,
+            "name": "storm-ui-http",
             "containerPort": 8080
           }
         ],

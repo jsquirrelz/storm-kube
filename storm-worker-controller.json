@@ -26,19 +26,19 @@
             "image": "mattf/storm-worker",
             "ports": [
               {
-                "hostPort": 6700,
+                "name": "6700",
                 "containerPort": 6700
               },
               {
-                "hostPort": 6701,
+                "name": "6701",
                 "containerPort": 6701
               },
               {
-                "hostPort": 6702,
+                "name": "6702",
                 "containerPort": 6702
               },
               {
-                "hostPort": 6703,
+                "name": "6703",
                 "containerPort": 6703
               }
             ],

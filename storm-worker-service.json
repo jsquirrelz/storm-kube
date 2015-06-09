@@ -11,19 +11,19 @@
     "ports": [
       {
         "port": 6700,
-        "targetPort": 6700
+        "targetPort": "6700"
       },
       {
         "port": 6701,
-        "targetPort": 6701
+        "targetPort": "6701"
       },
       {
         "port": 6702,
-        "targetPort": 6702
+        "targetPort": "6702"
       },
       {
         "port": 6703,
-        "targetPort": 6703
+        "targetPort": "6703"
       }
     ],
     "selector": {

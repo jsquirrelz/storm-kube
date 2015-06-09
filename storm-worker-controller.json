@@ -8,7 +8,7 @@
     }
   },
   "spec": {
-    "replicas": 5,
+    "replicas": 4,
     "selector": {
       "name": "storm-worker"
     },

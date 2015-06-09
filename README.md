@@ -137,16 +137,24 @@ $  kubectl get rc
 
 ## tl;dr
 
-```kubectl create -f zookeeper.json```
+```kubectl create -f storm-kube/zookeeper.json```
 
-```kubectl create -f zookeeper-service.json```
+```kubectl create -f storm-kube/zookeeper-service.json```
 
 Make sure the ZooKeeper Pod is running (use: ```kubectl get pods```).
 
-```kubectl create -f storm-nimbus.json```
+```kubectl create -f storm-kube/storm-nimbus.json```
 
-```kubectl create -f storm-nimbus-service.json```
+```kubectl create -f storm-kube/storm-nimbus-service.json```
 
 Make sure the Nimbus Pod is running.
 
-```kubectl create -f storm-worker-controller.json```
+```kubectl create -f storm-kube/storm-ui.json```
+
+```kubectl create -f storm-kube/storm-ui-service.json```
+
+Get the Storm-UI IP and visit it on port 8080.
+
+```kubectl create -f storm-kube/storm-worker-controller.json```
+
+```kubectl create -f storm-kube/storm-worker-service.json```

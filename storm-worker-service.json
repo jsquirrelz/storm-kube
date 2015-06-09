@@ -1,0 +1,33 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1beta3",
+  "metadata": {
+    "name": "storm-worker-service",
+    "labels": {
+      "name": "storm-worker"
+    }
+  },
+  "spec": {
+    "ports": [
+      {
+        "port": 6700,
+        "targetPort": 6700
+      },
+      {
+        "port": 6701,
+        "targetPort": 6701
+      },
+      {
+        "port": 6702,
+        "targetPort": 6702
+      },
+      {
+        "port": 6703,
+        "targetPort": 6703
+      }
+    ],
+    "selector": {
+      "name": "storm-worker"
+    }
+  }
+}
